@@ -28,7 +28,7 @@ SOFTWARE.
 Script      : Upload_Storage_from_PS_Output.ps1
 Author      : Krishna V
 Version     : 1.0.0
-Description : The script exports Data from AzResource resoruce into a Json document and that gets upload to Blob Storage.
+Description : The script exports Output  from AzResource resoruce into Blob Storage  
 #>
 
 
@@ -86,10 +86,10 @@ param (
     }
 
     #Replace these values accordingly 
-    $subscriptionId = "38e210c9-f725-420d-a307-5a739f45f830"
-    $storageAccountRG = "demo-foradxala-r76"
-    $storageAccountName = "newstorag22e"
-    $storageContainerName = "datafiles"
+    $subscriptionId = ""
+    $storageAccountRG = ""
+    $storageAccountName = ""
+    $storageContainerName =""
     $region = "eastus"
 
     if($subscriptionId -eq "") { throw "storageAccountRG is missing! Update the script and run again" }
