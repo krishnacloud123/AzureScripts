@@ -86,11 +86,11 @@ param (
     }
 
     #Replace these values accordingly 
-    $subscriptionId = "38e210c9-f725-420d-a307-5a739f45f830"
-    $storageAccountRG = "demo-foradxala-r76"
-    $storageAccountName = "newstorag22e"
-    $storageContainerName = "datafiles"
-    $region = "eastus"
+    $subscriptionId = ""
+    $storageAccountRG = ""
+    $storageAccountName = ""
+    $storageContainerName = ""
+    $region = ""
 
     if($subscriptionId -eq "") { throw "storageAccountRG is missing! Update the script and run again" }
     if($storageAccountRG -eq "")  { throw "storageAccountRG is missing! Update the script and run again" }
