@@ -41,10 +41,10 @@ param (
 
 
 # your Log Analytics workspace ID
-$LogAnalyticsWorkspaceId = "d7936737-b7f9-4e35-939e-cbcd2a00fccf"
+$LogAnalyticsWorkspaceId = ""
 
 # Use either the primary or the secondary Connected Sources client authentication key   
-$LogAnalyticsPrimaryKey = "rXjBssgozWg/QGvpijDkMCLYGxxO5WZhMeiGJ118NMRuxHK7XovP7CoqicQ47rzcEiS6Ulsl8v7dTT1evlp1NQ==" 
+$LogAnalyticsPrimaryKey = "" 
 
 if($LogAnalyticsWorkspaceId -eq "") { throw "Log Analytics workspace Id is missing! Update the script and run again" }
 if($LogAnalyticsPrimaryKey -eq "")  { throw "Log Analytics primary key is missing! Update the script and run again" }
