@@ -152,4 +152,5 @@ Function Export-AzData() {
     
  
 #Main Code - Run as required. Do ensure older table is deleted before creating the new table - as it will create duplicates.
+Connect-Azure -subscriptionId $subscriptionId
 Export-AzData 
