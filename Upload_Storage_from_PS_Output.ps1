@@ -1,4 +1,4 @@
-﻿<#   
+<#   
 The MIT License (MIT)
 
 Copyright (c) 2015 Microsoft Corporation
@@ -25,10 +25,10 @@ SOFTWARE.
 
 
 <#
-Script      : Upload_Storage_from_PS_Output.ps1
+Script      : UploadDataToBlob.ps1
 Author      : Krishna V
 Version     : 1.0.0
-Description : The script exports Output  from AzResource resoruce into Blob Storage  
+Description : The script exports Data from AzResource resoruce into a Json document and that gets upload to Blob Storage.
 #>
 
 
@@ -40,7 +40,17 @@ param (
     [String]$storageContainerName 
 )
 
+    #Replace these values accordingly 
+    $subscriptionId = ""
+    $storageAccountRG = ""
+    $storageAccountName = ""
+    $storageContainerName = "files"
+    $region = ""
 
+    Function date_time()
+    {
+         return (Get-Date -UFormat "%Y-%m-%d_%I-%M-%S_%p").tostring()
+    }
 
     Function Connect-Azure($subscriptionId)
     {
@@ -75,22 +85,20 @@ param (
 
     Function Upload-toStorage ( $storageContainerName,$storageContext )
     {
+        $logfilename = "inputs/" + (date_time) + ".json"
 
-        Get-AzResource | ConvertTo-Json | out-file C:\Work\Quest\ScriptforAutomation\WorkingCode\output\output.json
-        Set-AzStorageBlobContent -File "C:\Work\Quest\ScriptforAutomation\WorkingCode\output\output.json" `
+        #This is sample - please change the location accordingly.
+        # Ruunning the cmdlet and storing the output in json format. The idea is to show case  a source data.
+        Get-AzResource | ConvertTo-Json | out-file C:\output.json
+        #Uploading the output file into Blob Storage with propername.
+        Set-AzStorageBlobContent -File "C:\output.json" `
           -Container $storageContainerName `
-          -Blob "file.json" `
+          -Blob $logfilename `
           -Context $storageContext `
           -StandardBlobTier Hot
 
     }
-
-    #Replace these values accordingly 
-    $subscriptionId = ""
-    $storageAccountRG = ""
-    $storageAccountName = ""
-    $storageContainerName =""
-    $region = "eastus"
+ 
 
     if($subscriptionId -eq "") { throw "storageAccountRG is missing! Update the script and run again" }
     if($storageAccountRG -eq "")  { throw "storageAccountRG is missing! Update the script and run again" }
