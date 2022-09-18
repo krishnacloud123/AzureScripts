@@ -40,12 +40,12 @@ param (
     [String]$storageContainerName 
 )
 
-       #Replace these values accordingly 
-    $subscriptionId = "38e210c9-f725-420d-a307-5a739f45f830"
-    $storageAccountRG = "demo-foradxala-r2286"
-    $storageAccountName = "newsto22rag222e"
-    $storageContainerName = "files"
-    $region = "eastus"
+    #Replace these values accordingly 
+    $subscriptionId = ""
+    $storageAccountRG = ""
+    $storageAccountName = ""
+    $storageContainerName = ""
+    $region = ""
 
     Function date_time()
     {
@@ -86,8 +86,11 @@ param (
     Function Upload-toStorage ( $storageContainerName,$storageContext )
     {
         $logfilename = "inputs/" + (date_time) + ".json"
-
+        
+        # This cmdlet will get resoruce informatoon and stores in local directory.
         Get-AzResource | ConvertTo-Json | out-file C:\Work\Quest\ScriptforAutomation\WorkingCode\output\output.json
+        
+        # This will extract the file from local directory and upload to blob  .
         Set-AzStorageBlobContent -File "C:\Work\Quest\ScriptforAutomation\WorkingCode\output\output.json" `
           -Container $storageContainerName `
           -Blob $logfilename `
