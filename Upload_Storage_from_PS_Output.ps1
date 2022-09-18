@@ -25,10 +25,10 @@ SOFTWARE.
 
 
 <#
-Script      : UploadDataToBlob.ps1
+Script      : Upload_Storage_from_PS_Output.ps1
 Author      : Krishna V
 Version     : 1.0.0
-Description : The script exports Data from AzResource resoruce into a Json document and that gets upload to Blob Storage.
+Description : The script exports Data from AzResource resoruce into a Json document and that gets upload to Blob Storage with proper filename formatting.
 #>
 
 
