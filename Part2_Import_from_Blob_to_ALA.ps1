@@ -48,14 +48,14 @@
 #Step 0 : Intital setup 
 #--------------------------------------------------------------- 
 #subscription - Replace with your own.
-$subscriptionId = "38e210c9-f725-420d-a307-5a739f45f830"
+$subscriptionId = ""
 # Log Analytics table where the data is written to
 $LogAnalyticsTableName = "AzureResourceTableV4"
 # your Log Analytics workspace ID
-$LogAnalyticsWorkspaceId = "d7936737-b7f9-4e35-939e-cbcd2a00fccf"
+$LogAnalyticsWorkspaceId = ""
 
 # Use either the primary or the secondary Connected Sources client authentication key   
-$LogAnalyticsPrimaryKey = "rXjBssgozWg/QGvpijDkMCLYGxxO5WZhMeiGJ118NMRuxHK7XovP7CoqicQ47rzcEiS6Ulsl8v7dTT1evlp1NQ==" 
+$LogAnalyticsPrimaryKey = "" 
 
 
 # Replace  resourceGroup , storageAccountName , containerName with values from your enviornment.
@@ -65,11 +65,8 @@ $storageAccountName = "newstorag222e"
 # following are sample locations
 $downloadPath="\Work\Quest\ScriptforAutomation\WorkingCode\output\"
 $downloadLocation="\Work\Quest\ScriptforAutomation\WorkingCode\output\"
-#jsonpath - for testing purpose the value is harded coded. 
+#jsonpath - for testing purpose the value is harded coded , change it accordingly. 
 $jsonpath = "C:\Work\Quest\ScriptforAutomation\WorkingCode\output\files\inputs\2022-09-18_12-29-15_AM.json"
-
-
-
 
 if($LogAnalyticsWorkspaceId -eq "") { throw "Log Analytics workspace Id is missing! Update the script and run again" }
 if($LogAnalyticsPrimaryKey -eq "")  { throw "Log Analytics primary key is missing! Update the script and run again" }
@@ -283,6 +280,6 @@ Function Import-DatatoALA() {
   Connect-Azure -subscriptionId $subscriptionId
   Extract_blob
   Import-DatatoALA
-  Build-Signature 
+ 
 
     
