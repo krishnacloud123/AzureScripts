@@ -28,7 +28,7 @@
       Script      : Import_Json_to_ala.ps1
       Author      : Krishna V
       Version     : 1.0.0
-      Description : The script to import Json file into Azure Log analytics into a customer-specified Log Analytics table.
+      Description : The script will import Json file into Azure Log analytics into a customer-specified Log Analytics table.
                   : Please note this is a sample code and it will only work for a single file.
 #>
 
