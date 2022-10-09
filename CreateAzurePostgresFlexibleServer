@@ -1,4 +1,6 @@
 
+# Disclaimer -  These are test scripts - for learning purposes and not to be used in any production enviornment. 
+
 # Az cli script to create Postgres flexible server
 az postgres flexible-server create --public-access all
 
