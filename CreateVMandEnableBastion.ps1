@@ -4,13 +4,12 @@ New-AzResourceGroup -Name Test-Bastion-RG -Location "East US"
 
 #Setup Bastion and VNET coniguration
 $Bastionsub = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.0.0/27
-$FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
 
 
 #create the virtual network:
 $testVnet = New-AzVirtualNetwork -Name Test-Bastion-VN -ResourceGroupName Test-Bastion-RG `
--Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $Bastionsub, $FWsub, $Worksub
+-Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $Bastionsub, $Worksub
 
 #Create Bastion Host
 $publicip = New-AzPublicIpAddress -ResourceGroupName Test-Bastion-RG -Location "East US" `
